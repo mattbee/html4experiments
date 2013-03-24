@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>HTML 4 Experiments</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Mountains+of+Christmas' rel='stylesheet' type="text/css">
+
+
+	<style type="text/css">
+	body {
+		font-family: arial, sans-serif;
+	}
+
+	table {
+		margin: 20px auto;
+	}
+	table td {
+		padding: 30px 0;
+		min-width: 320px;
+		padding-right: 20px;
+	}
+	.gfont {
+		font-family: 'Mountains of Christmas', sans-serif;
+		font-weight: 900;
+		font-size: 30px;
+	}
+	</style>
+
+</head>
+<body>
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="680">
+
+	<tr>
+
+		<td>
+
+			<h1>HTML 4 Experiments</h1>
+
+			<p>Everyone is going on about how brilliant HTML5 is. I just wondered if HTML4 could keep up.  So, let's find out shall we?</p>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top">
+
+			<h2>Canvas</h2>
+
+			<p>Does Canvas work in HTML 3.2?  Damn right it does!</p>
+
+			<div id="canvas"></div>
+
+			<script type="text/javascript">
+
+			var canvasEl = document.createElement('canvas')
+				, canvasDiv = document.getElementById('canvas')
+				, context = canvasEl.getContext("2d");
+
+			canvasEl.width = 200
+			canvasEl.height = 200;
+
+			canvasDiv.appendChild(canvasEl);
+
+			var cat = new Image();
+			cat.src = "images/cat.jpg";
+			console.log(cat)
+
+			var text =  "I AM A CAT.";
+			var text2 = "ON CANVAS.";
+			context.font = "20px sans-serif";
+
+			cat.onload = function() {
+				context.drawImage(cat, 0, 0);
+				context.fillText(text, 20, 25);
+
+				context.fillStyle = 'black';
+				context.fillText(text2, 21, 56);
+				context.fillStyle = 'red';
+				context.fillText(text2, 20, 55);
+			};
+
+			</script>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top">
+
+			<h2>Webfonts</h2>
+
+			<p>I know, they were in the CSS2 spec - but worth seeing how HTML 3.2 handles them.</p>
+
+			<p><span class="gfont">AM I A PRETTY FONT OR WHAT!</span></p>
+
+		</td>
+
+	</tr>
+
+	<tr>
+		<td valign="top">
+
+			<h2>Content Editable</h2>
+
+			<p>Look at the, the content below is user-editable!</p>
+			 
+			<ul id="editable">
+				<li>Click me to edit me </li>
+		        <li>Every item is editable on this element.</li>
+		    	<li>Even this one.</li>
+		    </ul>
+
+		    <script type="text/javascript">
+		    var el = document.getElementById('editable');
+		    el.setAttribute('contenteditable', "true");
+		    </script>
+		        
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top">
+
+			<h2>Placeholder</h2>
+			<input type="text" id="placeholder" />
+
+			<script type="text/javascript">
+		    var el = document.getElementById('placeholder');
+		    el.setAttribute('placeholder', "This is example content.");
+		    </script>
+
+		</td>
+	</tr>
+
+	<tr>
+
+		<td valign="top">
+			<h2>Video</h2>
+
+			<p>WOULD YOU LOOK AT THAT? A Video!</p>
+
+			<div id="video"></div>
+
+			<script type="text/javascript">
+		    	
+		    var videoEl = document.getElementById('video')
+		    	,video = document.createElement('video')
+		    	, mov = document.createElement('source')
+				, ogg = document.createElement('source')
+				, avi = document.createElement('source');
+
+
+				video.width = '320';
+				video.height = '180';
+				video.setAttribute('controls');
+
+				mov.setAttribute('src','video/big_buck_bunny_480p_h264.mov');
+				mov.setAttribute('type', 'video/mp4');
+				ogg.setAttribute('src','video/big_buck_bunny_480p_stereo.avi');
+				ogg.setAttribute('type', 'video/ogg');
+				avi.setAttribute('src','video/big_buck_bunny_480p_stereo.ogg');
+				avi.setAttribute('type', 'video/avi');
+
+				video.appendChild(mov);
+				video.appendChild(ogg);
+				video.appendChild(avi);
+
+				videoEl.appendChild(video);
+
+		    </script>
+
+		</td>
+
+	</tr>
+	<tr>
+
+
+		<td valign="top">
+			<h2>Audio</h2>
+
+			<p>We love music on websites, so here is some.</p>
+
+			<div id="audio"></div>
+
+			<script type="text/javascript">
+		    	
+		    var audioEl = document.getElementById('audio')
+		    	, audio = document.createElement('audio')
+		    	, mp3 = document.createElement('source');
+
+
+				audio.width = '320';
+				audio.setAttribute('controls');
+
+				mp3.setAttribute('src','audio/Torley-015-80s-sitcom.mp3');
+				mp3.setAttribute('type', 'audio/mp3');
+				audio.appendChild(mp3);
+
+				audioEl.appendChild(audio);
+
+		    </script>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top">
+			<p>Thanks to:</p>
+
+			<ul>
+				<li><a href="http://diveintohtml5.info/">http://diveintohtml5.info/</a>
+				<li><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/</a></li>
+			</p>
+
+
+
+			<p>Disclaimer.</p>
+
+			<p>This page is just a bit of fun - talking after London JS about how the HTML5 buzzword is still being banded about too much for our liking, even the difference between HTML5 and a HTML5 API is overlooked, and it annoyed us. So we thought we'd highlight that nothing is in a name, and HTML 3.2 is just fine.  If the browser supports it.</p>
+			
+		</td>
+
+	</tr>
+
+</TABLE>
+
+
+
+</BODY>
+</HTML>
